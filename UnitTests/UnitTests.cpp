@@ -74,6 +74,49 @@ namespace UnitTests
 			Assert::AreEqual(expStr, s);
 		}
 
+		TEST_METHOD(to_lower_string_singleChar)
+		{
+			std::string s = "A";
+			to_lower_string(s);
+			std::string expStr = "a";
 
+			Assert::AreEqual(expStr, s);
+		}
+
+		TEST_METHOD(to_lower_string_fewChars)
+		{
+			std::string s = "ABCD";
+			to_lower_string(s);
+			std::string expStr = "abcd";
+
+			Assert::AreEqual(expStr, s);
+		}
+
+		TEST_METHOD(to_lower_string_spacedChars)
+		{
+			std::string s = "AB CD";
+			to_lower_string(s);
+			std::string expStr = "ab cd";
+
+			Assert::AreEqual(expStr, s);
+		}
+
+		TEST_METHOD(to_lower_string_lowerStr)
+		{
+			std::string s = "abcd";
+			to_lower_string(s);
+			std::string expStr = "abcd";
+
+			Assert::AreEqual(expStr, s);
+		}
+
+		TEST_METHOD(to_lower_string_lowerUpperStr)
+		{
+			std::string s = "AbCd";
+			to_lower_string(s);
+			std::string expStr = "abcd";
+
+			Assert::AreEqual(expStr, s);
+		}
 	};
 }
