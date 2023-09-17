@@ -41,5 +41,39 @@ namespace UnitTests
 
 			Assert::AreEqual(expStr, s);
 		}
+
+		TEST_METHOD(get_needed_chars_getZeroChars)
+		{
+			std::string s = get_needed_chars("abcd", 1, 0);
+			std::string expStr = "";
+
+			Assert::AreEqual(expStr, s);
+		}
+
+		TEST_METHOD(get_needed_chars_getSingleChar)
+		{
+			std::string s = get_needed_chars("abcd", 3, 1);
+			std::string expStr = "d";
+
+			Assert::AreEqual(expStr, s);
+		}
+
+		TEST_METHOD(get_needed_chars_getFewChars)
+		{
+			std::string s = get_needed_chars("abcd", 1, 2);
+			std::string expStr = "bc";
+
+			Assert::AreEqual(expStr, s);
+		}
+
+		TEST_METHOD(get_needed_chars_offsetZero)
+		{
+			std::string s = get_needed_chars("abcd", 0, 2);
+			std::string expStr = "ab";
+
+			Assert::AreEqual(expStr, s);
+		}
+
+
 	};
 }
