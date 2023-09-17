@@ -118,5 +118,41 @@ namespace UnitTests
 
 			Assert::AreEqual(expStr, s);
 		}
+
+		TEST_METHOD(split_spacedStr)
+		{
+			std::vector<std::string> s = split("hello world", ' ');
+			std::vector<std::string> expVec = {"hello", "world"};
+
+			for (int i = 0; i < expVec.size(); i++)
+				Assert::AreEqual(expVec[i], s[i]);
+		}
+
+		TEST_METHOD(split_charDelimiter)
+		{
+			std::vector<std::string> s = split("hello-world", '-');
+			std::vector<std::string> expVec = { "hello", "world" };
+
+			for (int i = 0; i < expVec.size(); i++)
+				Assert::AreEqual(expVec[i], s[i]);
+		}
+
+		TEST_METHOD(split_singleWord)
+		{
+			std::vector<std::string> s = split("hello", ' ');
+			std::vector<std::string> expVec = { "hello" };
+
+			for (int i = 0; i < expVec.size(); i++)
+				Assert::AreEqual(expVec[i], s[i]);
+		}
+
+		TEST_METHOD(split_singleChar)
+		{
+			std::vector<std::string> s = split("h", ' ');
+			std::vector<std::string> expVec = { "h" };
+
+			for (int i = 0; i < expVec.size(); i++)
+				Assert::AreEqual(expVec[i], s[i]);
+		}
 	};
 }
